@@ -52,7 +52,11 @@ def train_ppo(config_path: str = None, output_dir: str = "logs") -> None:
     train_env = create_env(config["environment"], seed=config.get("seed", 0))
     train_env = DummyVecEnv([lambda: train_env])
 
-    # Optionally wrap with VecNormalize for observation normalization
+    # Create evaluation environment
+    eval_env = create_env(config["environment"], seed=config.get("seed", 1))
+    eval_env = DummyVecEnv([lambda: eval_env])
+
+    # Optionally wrap both with VecNormalize for observation normalization
     if config.get("normalize_observations", True):
         train_env = VecNormalize(
             train_env,
@@ -60,9 +64,12 @@ def train_ppo(config_path: str = None, output_dir: str = "logs") -> None:
             norm_reward=False,
             clip_obs=10.0,
         )
-
-    # Create evaluation environment
-    eval_env = create_env(config["environment"], seed=config.get("seed", 1))
+        eval_env = VecNormalize(
+            eval_env,
+            norm_obs=True,
+            norm_reward=False,
+            clip_obs=10.0,
+        )
 
     # Setup callbacks
     checkpoint_callback = CheckpointCallback(

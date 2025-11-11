@@ -6,7 +6,9 @@
       "Bash(git push:*)",
       "Bash(source:*)",
       "Bash(conda activate:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nPhase 2: Complete AEOS environment with orbital mechanics and PPO training\n\nEnvironment Implementation:\n- Full Gymnasium-compatible AEOS environment with realistic satellite dynamics\n- State space: satellite position, battery, storage, task queue with priorities\n- Action space: idle, observe task (1-20), downlink data\n- Multi-objective reward function with task completion, energy, and memory constraints\n\nSimulation Modules:\n- SatelliteModel: Orbital propagation, power budget (solar + battery), attitude control\n- GroundStationManager: Visibility prediction, data downlink simulation\n- TaskGenerator/TaskQueue: Realistic observation task generation with priorities/deadlines\n- Proper constraint handling and eclipse modeling\n\nPPO Training:\n- Stable-Baselines3 PPO trainer with configurable hyperparameters\n- Checkpoint and evaluation callbacks\n- Vector environment normalization for stable training\n- YAML-based configuration for reproducibility\n\nConfiguration Files:\n- training.yaml: PPO hyperparameters and training schedule\n- environment.yaml: Simulation parameters and ground stations\n\nVerification:\n- Environment testing confirms successful initialization and stepping\n- Ready for initial training run\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
