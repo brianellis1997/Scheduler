@@ -1,0 +1,31 @@
+seed: 42
+
+environment:
+  episode_duration_s: 5400      # 90 minute orbits
+  timestep_s: 60                # 1 minute decision intervals
+  max_tasks: 20                 # Maximum tasks in queue
+  num_initial_tasks: 10         # Starting task count
+  reward_weights:
+    task_completion: 1.0        # Reward for completing a task
+    priority_bonus: 0.5         # Bonus for high-priority tasks
+    energy_penalty: 0.1         # Penalty for low battery
+    memory_penalty: 0.2         # Penalty for storage full
+    latency_penalty: 0.05       # Penalty for missed deadlines
+
+training:
+  total_timesteps: 500000       # Total environment steps
+  checkpoint_freq: 10000        # Save model every N steps
+  eval_freq: 5000               # Evaluate every N steps
+  eval_episodes: 10             # Episodes per evaluation
+  log_interval: 10              # Log every N updates
+
+ppo_params:
+  learning_rate: 0.0003         # PPO learning rate
+  batch_size: 64                # Training batch size
+  n_epochs: 10                  # Epochs per update
+  gamma: 0.99                   # Discount factor
+  gae_lambda: 0.95              # GAE lambda for advantage estimation
+  clip_range: 0.2               # PPO clip range
+  ent_coef: 0.01                # Entropy coefficient for exploration
+
+normalize_observations: true    # Normalize observations

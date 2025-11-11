@@ -1,0 +1,35 @@
+episode_duration_s: 5400      # 90 minute orbits
+timestep_s: 60                # 1 minute decision intervals
+max_tasks: 20                 # Maximum tasks in queue
+num_initial_tasks: 10         # Starting task count
+
+reward_weights:
+  task_completion: 1.0        # Reward for completing a task
+  priority_bonus: 0.5         # Bonus for high-priority tasks
+  energy_penalty: 0.1         # Penalty for low battery
+  memory_penalty: 0.2         # Penalty for storage full
+  latency_penalty: 0.05       # Penalty for missed deadlines
+
+satellite:
+  altitude_km: 500            # LEO altitude
+  inclination_deg: 97.5       # Sun-synchronous orbit
+  max_slew_rate_deg_s: 5.0    # Attitude change rate
+  battery_capacity_wh: 100.0  # Power storage
+  storage_capacity_gb: 10.0   # Data storage
+
+ground_stations:
+  - name: "Fairbanks"
+    latitude: 64.8
+    longitude: -147.7
+    elevation_deg: 10.0
+    bandwidth_mbps: 50.0
+  - name: "Santiago"
+    latitude: -33.4
+    longitude: -70.4
+    elevation_deg: 10.0
+    bandwidth_mbps: 50.0
+  - name: "Singapore"
+    latitude: 1.4
+    longitude: 103.8
+    elevation_deg: 10.0
+    bandwidth_mbps: 50.0

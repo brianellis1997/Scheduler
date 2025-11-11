@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial project setup: AEOS-RL framework with conda environment\n\n- Set up conda environment aeos-scheduler with Python 3.10\n- Install core dependencies: PyTorch, Stable-Baselines3, Gymnasium, visualization tools\n- Create project structure with modular src organization\n- Initialize all module packages with __init__.py files\n- Create placeholder AEOS Gymnasium environment class\n- Update README with comprehensive project documentation\n- Create requirements.txt and environment.yml for reproducibility\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(source:*)",
+      "Bash(conda activate:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
