@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  aeos-dashboard:
+    build: .
+    container_name: aeos-scheduler-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  aeos-trainer:
+    build: .
+    container_name: aeos-scheduler-trainer
+    command: python -m src.models.ppo_trainer --config configs/training.yaml --output-dir logs --timesteps 500000
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Uncomment to run automatically on compose up
+    # restart: unless-stopped
