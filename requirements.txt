@@ -1,0 +1,15 @@
+torch>=2.0.0
+stable-baselines3>=2.2.0
+gymnasium>=0.29.0
+numpy>=1.26.0
+pandas>=2.1.0
+matplotlib>=3.8.0
+plotly>=5.17.0
+streamlit>=1.28.0
+skyfield>=1.48
+scipy>=1.11.0
+pyyaml>=6.0
+tensorboard>=2.14.0
+tqdm>=4.66.0
+python-dateutil>=2.8.0
+astropy>=6.0
