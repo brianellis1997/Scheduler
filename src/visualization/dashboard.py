@@ -37,17 +37,8 @@ def setup_page():
 
 def show_header():
     """Display dashboard header"""
-    col1, col2, col3 = st.columns([1, 2, 1])
-
-    with col1:
-        st.image("🛰️", width=50)
-
-    with col2:
-        st.title("AEOS-RL: Satellite Scheduling Dashboard")
-        st.markdown("*Agile Earth Observation Satellite with Reinforcement Learning*")
-
-    with col3:
-        st.markdown("")
+    st.title("🛰️ AEOS-RL: Satellite Scheduling Dashboard")
+    st.markdown("*Agile Earth Observation Satellite with Reinforcement Learning*")
 
 
 def show_3d_visualization():
